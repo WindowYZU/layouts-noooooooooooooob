@@ -49,7 +49,30 @@ public class CardLayoutSample {
         }
         //add ActionListener to each control button and invoke
         //first, previous, next, and last for each button
-        
+        first.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                layout.first(panel);
+            }
+        });
+        prev.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                layout.previous(panel); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        next.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                layout.next(panel); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+        last.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                layout.last(panel); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
         //////////////////////////////////////////////////////
 
         frame.setVisible(true);

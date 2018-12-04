@@ -29,7 +29,9 @@ public class SpringLayoutSample {
         
         JLabel label=new JLabel("label");
         //layout the label to (5, 5)
-        
+        layout.putConstraint(SpringLayout.WEST,label,5,SpringLayout.WEST,frame.getContentPane());
+        layout.putConstraint(SpringLayout.NORTH,label,5,SpringLayout.NORTH,frame.getContentPane());
+        layout.putConstraint(SpringLayout.SOUTH,label,5,SpringLayout.SOUTH,frame.getContentPane());
         ////////////////////////////
         
         frame.add(label);

@@ -10,6 +10,8 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
@@ -29,7 +31,19 @@ public class BorderLayoutSample2 {
         frame.setSize(500, 500);
         BorderLayout layout=new BorderLayout();
         frame.setLayout(layout);
-        
+        JScrollPane scroll=new JScrollPane();
+        JPanel container=new JPanel(){
+            @Override
+            public Dimension getPreferredSize(){
+                int count=this.getComponentCount();
+                if(count>0){
+                    int total=count*this.getComponent(0).getPreferSize().width;
+                    int row=(int)Math.ceil(total/500);
+                    return new Dimension(500, this.getComponent(0).getPreferredSize().height*row+20*(row))
+                }
+                return new Dimension(500, 1);
+            }
+        };
         //1. create five CustomComponents, add them to North, West, South, East, Center
         //2. change the preferred size of CustomComponent
         JButton button1=new JButton("1");
